@@ -14,8 +14,13 @@ const Shop = () => {
 
     },[])
 
-    const handlerOnClick = e =>{
-        setCartItem([...cartItem, e])
+    // Event Handler for AddTOCart :====
+    const handlerOnClick = item =>{
+        setCartItem([...cartItem, item])
+    }
+    //Event Handler For Clear Cart:====
+    const clearCart = ()=>{
+        setCartItem([])
     }
 
 
@@ -27,11 +32,12 @@ const Shop = () => {
                     products.map(product=><Product key={product.id} product={product} click={handlerOnClick}/>)
                 }
             </div>
+
             <div className="cart-container bg-info">
             <h3>Selected Item</h3> 
             <div><p>name : {cartItem}</p></div>
             <button>Choose one</button>
-            <button>Choose again</button>
+            <button onClick={clearCart}>Clear Cart</button>
             </div>
         </div>
     );
