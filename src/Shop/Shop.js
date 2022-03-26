@@ -5,7 +5,6 @@ import Product from '../Product/Product';
 const Shop = () => {
     const[products, setProducts]=useState([]);
     const[cartItem, setCartItem]=useState([])
-    // console.log(cartItem)
     
     useEffect(()=>{
         fetch('products.json')
@@ -25,7 +24,7 @@ const Shop = () => {
     // Random one selection if element exist in cart:=====
     const random = ()=>{
         let randomItem = cartItem[Math.floor(Math.random()*cartItem.length)];
-        setCartItem(randomItem)
+        setCartItem([randomItem])
     }
 
     return (
@@ -37,8 +36,14 @@ const Shop = () => {
             </div>
 
             <div className="cart-container bg-info">
-            <h3 className='ms-4 mt-5'>Selected Item</h3> 
-            <p className='ms-4 my-5'>Name : {cartItem}</p>
+            <h4 className='ms-4 mt-5'>Selected Item</h4> 
+            {
+                cartItem.map((elements, index)=> {
+                    return (<p key={index}  className='ms-5'>
+                      Product:  {elements}</p>)
+                } )
+            }
+
             <button onClick={random} className='bg-secondary bg-gradient rounded-3 text-white ms-2'>Choose one</button>
             <button onClick={clearCart} className='bg-secondary bg-gradient rounded-3 text-white ms-2'>Clear Cart</button>
             </div>
