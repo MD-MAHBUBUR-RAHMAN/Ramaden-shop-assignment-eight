@@ -2,3 +2,12 @@
   display: grid;
   grid-template-columns: 4fr 1fr;
 }
+@media only screen and (max-width: 576px) {
+  .shop-container {
+    grid-template-columns: 1fr;
+  }
+  .cart-container {
+    grid-row-start: 1;
+    width: 100%;
+  }
+}
