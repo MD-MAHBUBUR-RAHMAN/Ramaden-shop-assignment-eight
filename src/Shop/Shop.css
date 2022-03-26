@@ -1,11 +1,6 @@
 .shop-container {
   display: grid;
   grid-template-columns: 4fr 1fr;
-  position: relative;
-}
-.cart-container {
-  position: sticky;
-  top: 0;
 }
 
 @media only screen and (max-width: 576px) {
